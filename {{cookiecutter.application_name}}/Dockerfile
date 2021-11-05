@@ -16,3 +16,11 @@ RUN apt-get -y update \
 ENV PYTHONDONTWRITEBYTECODE=1 \
    PYTHONUNBUFFERED=1 \
    DEBIAN_FRONTEND=noninteractive
+
+RUN /usr/local/bin/python -m pip install --upgrade pip
+COPY ./docs/requirements.txt /opt/config/
+RUN pip3 install --no-cache-dir --compile -r /opt/config/requirements.txt 
+
+WORKDIR /code
+
+ENTRYPOINT ["python3"]
