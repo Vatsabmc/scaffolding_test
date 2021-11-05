@@ -4,7 +4,7 @@ Tests for `{{ cookiecutter.application_name }}` module.
 import pytest
 
 
-class Test{{ cookiecutter.application_name }}(object):
+class TestMain (object):
 
     @classmethod
     def setup_class(cls):

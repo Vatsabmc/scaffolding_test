@@ -5,14 +5,16 @@ If any error is raised, the cookie cutter creation fails and crashes
 
 import re
 import sys
+import datetime
 
 MODULE_REGEX = r'^[_a-zA-Z][_a-zA-Z0-9]+$'
 EMAIL_REGEX = r'[^@]+@[^@]+\.[^@]+'
+DATE_FORMAT= "%Y-%m-d"
 
-author_email = '{{ cookiecutter.email }}'
+email = '{{ cookiecutter.email }}'
+release_date = '{{ cookiecutter.release_date }}'
 
-if not re.match(EMAIL_REGEX, author_email):
-    print('ERROR: "{}" no es una dirección de correo valida!'.format(author_email))
-
-    # exits with status 1 to indicate failure
+if not re.match(EMAIL_REGEX, email):
+    print(f'ERROR: email: {email} no es una dirección de correo valida.')
     sys.exit(1)
+
